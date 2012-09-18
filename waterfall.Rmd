@@ -3,7 +3,7 @@
 ```{r setup, include=FALSE}
 opts_knit$set(upload.fun = imgur_upload) 
 opts_chunk$set(fig.width=8, fig.height=8, out.extra='style="display:block; margin: auto"')
-render_jekyll()
+
 ```
 
 
