@@ -100,7 +100,7 @@ axis(1, 1:12, sprintf(c("一%s", "二%s", "三%s", "四%s", "五%s", "六%s", "七%s",
     ifelse(diff(sun.m.1997) < 0, "red", "blue")))
 sun.m.1996 = sun.m[248, ]
 plot(sun.m.1996, xlab = "1996年", ylab = "太阳黑子数", type = "n", xlim = c(0.5, 
-    12.5), ylim = c(0, max(sun.m.1996)), xaxt = "n", panel.first = grid(), main = "1996年太阳黑子数攼<U+3E37><U+383C><U+3E30>	(
+    12.5), ylim = c(0, max(sun.m.1996)), xaxt = "n", panel.first = grid(), main = "1996年太阳黑子数攼<U+3E37><U+383C><U+3E30>
 axis(1, 1:12, sprintf(c("一%s", "二%s", "三%s", "四%s", "五%s", "六%s", "七%s", 
     "八%s", "九%s", "十%s", "十一%s", "十二%s"),rect(1:12 - 0.3, c(0, sun.m.1996[1:11]), 1:12 + 0.3, sun.m.1996, col = c("cyan", 
     ifelse(diff(sun.m.1997) < 0, "red", "blue")))

@@ -1,6 +1,6 @@
 Ñ§»­Í¼£ºÒ»¡¢ÆÙ²¼Í¼
 ========================================================
-
+`r opts_chunk$set(cache=TRUE)`
 
 ```{r setup,echo=FALSE,message=FALSE}
 gitsubdir <- paste(tail(strsplit(getwd(),"/")[[1]],1),"/",sep="")
