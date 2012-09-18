@@ -1,0 +1,92 @@
+学画图：一、瀑布图
+========================================================
+
+``` {r setup,echo=FALSE,message=FALSE}
+gitsubdir <- paste(tail(strsplit(getwd(),"/")[[1]],1),"/",sep="")
+gitrep <- "https://github.com/jianchongsu/plot"
+gitbranch <- "master"
+opts_knit$set(base.url=paste(gitrep,"raw",gitbranch,gitsubdir,sep="/"))
+```
+
+
+### 什么是瀑布图？
+瀑布图大致上可以看做是条形图的改进，不同的是，条形图都是从同一个基准线堆积起来的，通过比较高矮来反映数据的变化。
+而瀑布图除了第一个矩阵条之外，后面的矩阵条都不再以零点为基准线来画，而是以前一个矩阵条的高度为起点画矩阵到该矩阵条位置上取值，由此可以反映一个变量取值的上下变化。同时可以对跟前面数据相比，上升或者下降的情况赋以不同颜色，以来来清晰直爽的表现同前一个数据相比，上升或者下降的趋势。
+### 瀑布图的画法
+#### 数据——Monthly numbers of sunspots
+选择R中自带的数据集——Monthly numbers of sunspots，即从1749年到1997年的每个月的太阳黑子数。数据原来的形式是时间序列形式的，我们将其矩阵化，选取1997年每月的数据来展示瀑布图。
+#### 展示下原始数据以及整体的图像
+```{r data_plot}
+
+head(sunspot.month,12)
+plot(sunspot.month)
+```
+#### 将其矩阵化以及整理
+```{r data_matrix}
+sun.m=matrix(sunspot.month,ncol=12)
+colnames(sun.m)=month.abb
+rownames(sun.m)=1749:1997
+head(sun.m)
+```
+#### 画条形图
+```{r barplot and waterfallplot,warning=FALSE}
+library(RColorBrewer)
+sun.m.1997=sun.m[249,]
+barplot(sun.m.1997,main="the number of sunspot in 1997",col=brewer.pal(12,"PuRd"))
+```
+#### 画瀑布图
+```{r waterfall,warning=FALSE }
+diff(sun.m.1997)
+
+plot(sun.m.1997,xlab="1997年",ylab="太阳黑子数",type="n",xlim=c(0.5,12.5),
+     ylim=c(0,max(sun.m.1997)),xaxt="n",panel.first=grid(),main="1997年太阳黑子数瀑布图")
+axis(1,1:12,sprintf(c("一%s","二%s","三%s","四%s","五%s","六%s","七%s","八%s","九%s","十%s","十一%s","十二%s"),"月"))
+rect(1:12-0.3,c(0,sun.m.1997[1:11]),1:12+0.3,sun.m.1997,col=c("cyan",ifelse(diff(sun.m.1997)<0,"red","blue")))
+```
+由上图可以看出二月三月相对于上一个月的太阳黑子数都有了下降的趋势，甚至第三个月降到了0，之后的四月、五月、六月、七月都是每个月比上个月出现的太阳黑子数多，整体的增长幅度在降低，直到第八个月又下降，九月、十月上升，十一月又降下来，然后十二月上升。大体说明了，每个月的太阳黑子数相对于前一个月的数量升降变化。
+
+
+#### 对比1995,1996年和1997年的瀑布图
+```{r waterfall 96vs97,warning=FALSE}
+par(mfrow=c(3,1))
+sun.m.1997=sun.m[249,]
+plot(sun.m.1997,xlab="1997年",ylab="太阳黑子数",type="n",xlim=c(0.5,12.5),
+     ylim=c(0,max(sun.m.1997)),xaxt="n",panel.first=grid(),main="1997年太阳黑子数瀑布图")
+axis(1,1:12,sprintf(c("一%s","二%s","三%s","四%s","五%s","六%s","七%s","八%s","九%s","十%s","十一%s","十二%s"),"月"))
+rect(1:12-0.3,c(0,sun.m.1997[1:11]),1:12+0.3,sun.m.1997,col=c("cyan",ifelse(diff(sun.m.1997)<0,"red","blue")))
+sun.m.1996=sun.m[248,]
+plot(sun.m.1996,xlab="1996年",ylab="太阳黑子数",type="n",xlim=c(0.5,12.5),
+     ylim=c(0,max(sun.m.1996)),xaxt="n",panel.first=grid(),main="1996年太阳黑子数瀑布图")
+axis(1,1:12,sprintf(c("一%s","二%s","三%s","四%s","五%s","六%s","七%s","八%s","九%s","十%s","十一%s","十二%s"),"月"))
+rect(1:12-0.3,c(0,sun.m.1996[1:11]),1:12+0.3,sun.m.1996,col=c("cyan",ifelse(diff(sun.m.1997)<0,"red","blue")))
+sun.m.1995=sun.m[247,]
+plot(sun.m.1996,xlab="1995年",ylab="太阳黑子数",type="n",xlim=c(0.5,12.5),
+     ylim=c(0,max(sun.m.1995)),xaxt="n",panel.first=grid(),main="1995年太阳黑子数瀑布图")
+axis(1,1:12,sprintf(c("一%s","二%s","三%s","四%s","五%s","六%s","七%s","八%s","九%s","十%s","十一%s","十二%s"),"月"))
+rect(1:12-0.3,c(0,sun.m.1995[1:11]),1:12+0.3,sun.m.1995,col=c("cyan",ifelse(diff(sun.m.1997)<0,"red","blue")))
+
+```
+可以清晰的看出，太阳黑子的数量的变化每个月的大致变化都是相似的。二月、三月的数量都会相对前一个月出现太阳黑子的数量少不少，而且第三个月总是降低到0，。而后,四月、五月、六月、七月开始逐月增多，到了八月又比七月出现的次数少很多，然后九月、十月逐月增加，十一月下降，然后十二月再增多。说明了太阳黑子数量随着月份的周期性变化。
+
+
+### 编写一个简单的瀑布图函数
+```{r waterfall_function,warning=FALSE}
+waterfall=function(data)
+{
+  #ylab=as.character(ylab)
+  plot(data,type="n",xlim=c(0,length(data)+0.5),
+       ylim=c(0,max(data)),xaxt="n",panel.first=grid(),main=c("The Waterfall-plot"))
+  axis(1,1:length(data),names(data))
+  rect(1:length(data)-0.3,c(0,data[1:length(data)-1]),1:length(data)+0.3,data,col=c("cyan",ifelse(diff(data)<0,"red","blue")))
+}
+```
+```{r action}
+waterfall(sun.m.1997)
+
+```
+```{r actuon2}
+waterfall(trees[,2]) 
+```
+该函数还有不少问题，比如y标签的处理，以及题目的处理，都有待完善，有时间会优化一下。
+
+

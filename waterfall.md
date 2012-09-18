@@ -3,6 +3,8 @@
 
 
 
+
+
 ### Ê²Ã´ÊÇÆÙ²¼Í¼£¿
 ÆÙ²¼Í¼´óÖÂÉÏ¿ÉÒÔ¿´×öÊÇÌõĞÎÍ¼µÄ¸Ä½ø£¬²»Í¬µÄÊÇ£¬ÌõĞÎÍ¼¶¼ÊÇ´ÓÍ¬Ò»¸ö»ù×¼Ïß¶Ñ»ıÆğÀ´µÄ£¬Í¨¹ı±È½Ï¸ß°«À´·´Ó³Êı¾İµÄ±ä»¯¡£
 ¶øÆÙ²¼Í¼³ıÁËµÚÒ»¸ö¾ØÕóÌõÖ®Íâ£¬ºóÃæµÄ¾ØÕóÌõ¶¼²»ÔÙÒÔÁãµãÎª»ù×¼ÏßÀ´»­£¬¶øÊÇÒÔÇ°Ò»¸ö¾ØÕóÌõµÄ¸ß¶ÈÎªÆğµã»­¾ØÕóµ½¸Ã¾ØÕóÌõÎ»ÖÃÉÏÈ¡Öµ£¬ÓÉ´Ë¿ÉÒÔ·´Ó³Ò»¸ö±äÁ¿È¡ÖµµÄÉÏÏÂ±ä»¯¡£Í¬Ê±¿ÉÒÔ¶Ô¸úÇ°ÃæÊı¾İÏà±È£¬ÉÏÉı»òÕßÏÂ½µµÄÇé¿ö¸³ÒÔ²»Í¬ÑÕÉ«£¬ÒÔÀ´À´ÇåÎúÖ±Ë¬µÄ±íÏÖÍ¬Ç°Ò»¸öÊı¾İÏà±È£¬ÉÏÉı»òÕßÏÂ½µµÄÇ÷ÊÆ¡£
@@ -25,7 +27,7 @@ head(sunspot.month, 12)
 plot(sunspot.month)
 ```
 
-![plot of chunk data_plot](https://github.com/yihui/knitr/raw/master/inst/examples/figure/data_plot.png) 
+![plot of chunk data_plot](https://github.com/jianchongsu/plot/raw/master/learn plot in r/figure/data_plot.png) 
 
 #### ½«Æä¾ØÕó»¯ÒÔ¼°ÕûÀí
 
@@ -55,7 +57,7 @@ barplot(sun.m.1997, main = "the number of sunspot in 1997", col = brewer.pal(12,
     "PuRd"))
 ```
 
-![plot of chunk barplot and waterfallplot](https://github.com/yihui/knitr/raw/master/inst/examples/figure/barplot_and_waterfallplot.png) 
+![plot of chunk barplot and waterfallplot](https://github.com/jianchongsu/plot/raw/master/learn plot in r/figure/barplot_and_waterfallplot.png) 
 
 #### »­ÆÙ²¼Í¼
 
@@ -75,11 +77,12 @@ diff(sun.m.1997)
 plot(sun.m.1997, xlab = "1997Äê", ylab = "Ì«ÑôºÚ×ÓÊı", type = "n", xlim = c(0.5, 
     12.5), ylim = c(0, max(sun.m.1997)), xaxt = "n", panel.first = grid(), main = "1997ÄêÌ«ÑôºÚ×ÓÊı”<U+3E37><U+383C><U+3E30>
 axis(1, 1:12, sprintf(c("Ò»%s", "¶ş%s", "Èı%s", "ËÄ%s", "Îå%s", "Áù%s", "Æß%s", 
-    "°Ë%s", "¾Å%s", "Ê®%s", "Ê®Ò»%s", "Ê®¶ş%s"),rect(1:12 - 0.3, c(0, sun.m.1997[1:11]), 1:12 + 0.3, sun.m.1997, col = c("cyan", 
+    "°Ë%s", "¾Å%s", "Ê®%s", "Ê®Ò»%s", "Ê®¶ş%s"),
+rect(1:12 - 0.3, c(0, sun.m.1997[1:11]), 1:12 + 0.3, sun.m.1997, col = c("cyan", 
     ifelse(diff(sun.m.1997) < 0, "red", "blue")))
 ```
 
-![plot of chunk waterfall](https://github.com/yihui/knitr/raw/master/inst/examples/figure/waterfall.png) 
+![plot of chunk waterfall](https://github.com/jianchongsu/plot/raw/master/learn plot in r/figure/waterfall.png) 
 
 ÓÉÉÏÍ¼¿ÉÒÔ¿´³ö¶şÔÂÈıÔÂÏà¶ÔÓÚÉÏÒ»¸öÔÂµÄÌ«ÑôºÚ×ÓÊı¶¼ÓĞÁËÏÂ½µµÄÇ÷ÊÆ£¬ÉõÖÁµÚÈı¸öÔÂ½µµ½ÁË0£¬Ö®ºóµÄËÄÔÂ¡¢ÎåÔÂ¡¢ÁùÔÂ¡¢ÆßÔÂ¶¼ÊÇÃ¿¸öÔÂ±ÈÉÏ¸öÔÂ³öÏÖµÄÌ«ÑôºÚ×ÓÊı¶à£¬ÕûÌåµÄÔö³¤·ù¶ÈÔÚ½µµÍ£¬Ö±µ½µÚ°Ë¸öÔÂÓÖÏÂ½µ£¬¾ÅÔÂ¡¢Ê®ÔÂÉÏÉı£¬Ê®Ò»ÔÂÓÖ½µÏÂÀ´£¬È»ºóÊ®¶şÔÂÉÏÉı¡£´óÌåËµÃ÷ÁË£¬Ã¿¸öÔÂµÄÌ«ÑôºÚ×ÓÊıÏà¶ÔÓÚÇ°Ò»¸öÔÂµÄÊıÁ¿Éı½µ±ä»¯¡£
 
@@ -92,22 +95,26 @@ sun.m.1997 = sun.m[249, ]
 plot(sun.m.1997, xlab = "1997Äê", ylab = "Ì«ÑôºÚ×ÓÊı", type = "n", xlim = c(0.5, 
     12.5), ylim = c(0, max(sun.m.1997)), xaxt = "n", panel.first = grid(), main = "1997ÄêÌ«ÑôºÚ×ÓÊı”<U+3E37><U+383C><U+3E30>
 axis(1, 1:12, sprintf(c("Ò»%s", "¶ş%s", "Èı%s", "ËÄ%s", "Îå%s", "Áù%s", "Æß%s", 
-    "°Ë%s", "¾Å%s", "Ê®%s", "Ê®Ò»%s", "Ê®¶ş%s"),rect(1:12 - 0.3, c(0, sun.m.1997[1:11]), 1:12 + 0.3, sun.m.1997, col = c("cyan", 
+    "°Ë%s", "¾Å%s", "Ê®%s", "Ê®Ò»%s", "Ê®¶ş%s"),
+rect(1:12 - 0.3, c(0, sun.m.1997[1:11]), 1:12 + 0.3, sun.m.1997, col = c("cyan", 
     ifelse(diff(sun.m.1997) < 0, "red", "blue")))
 sun.m.1996 = sun.m[248, ]
 plot(sun.m.1996, xlab = "1996Äê", ylab = "Ì«ÑôºÚ×ÓÊı", type = "n", xlim = c(0.5, 
-    12.5), ylim = c(0, max(sun.m.1996)), xaxt = "n", panel.first = grid(), main = "1996ÄêÌ«ÑôºÚ×ÓÊı”<U+3E37><U+383C><U+3E30>axis(1, 1:12, sprintf(c("Ò»%s", "¶ş%s", "Èı%s", "ËÄ%s", "Îå%s", "Áù%s", "Æß%s", 
-    "°Ë%s", "¾Å%s", "Ê®%s", "Ê®Ò»%s", "Ê®¶ş%s"),rect(1:12 - 0.3, c(0, sun.m.1996[1:11]), 1:12 + 0.3, sun.m.1996, col = c("cyan", 
+    12.5), ylim = c(0, max(sun.m.1996)), xaxt = "n", panel.first = grid(), main = "1996ÄêÌ«ÑôºÚ×ÓÊı”<U+3E37><U+383C><U+3E30>
+axis(1, 1:12, sprintf(c("Ò»%s", "¶ş%s", "Èı%s", "ËÄ%s", "Îå%s", "Áù%s", "Æß%s", 
+    "°Ë%s", "¾Å%s", "Ê®%s", "Ê®Ò»%s", "Ê®¶ş%s"),
+rect(1:12 - 0.3, c(0, sun.m.1996[1:11]), 1:12 + 0.3, sun.m.1996, col = c("cyan", 
     ifelse(diff(sun.m.1997) < 0, "red", "blue")))
 sun.m.1995 = sun.m[247, ]
 plot(sun.m.1996, xlab = "1995Äê", ylab = "Ì«ÑôºÚ×ÓÊı", type = "n", xlim = c(0.5, 
-    12.5), ylim = c(0, max(sun.m.1995)), xaxt = "n", panel.first = grid(), main = "1995ÄêÌ«ÑôºÚ×ÓÊı”<U+3E37><U+383C><U+3E30>
+    12.5), ylim = c(0, max(sun.m.1995)), xaxt = "n", panel.first = grid(), main = "1995ÄêÌ«ÑôºÚ×ÓÊı”<U+3E37><U+383C><U+3E30>@	(
 axis(1, 1:12, sprintf(c("Ò»%s", "¶ş%s", "Èı%s", "ËÄ%s", "Îå%s", "Áù%s", "Æß%s", 
-    "°Ë%s", "¾Å%s", "Ê®%s", "Ê®Ò»%s", "Ê®¶ş%s"),rect(1:12 - 0.3, c(0, sun.m.1995[1:11]), 1:12 + 0.3, sun.m.1995, col = c("cyan", 
+    "°Ë%s", "¾Å%s", "Ê®%s", "Ê®Ò»%s", "Ê®¶ş%s"),
+rect(1:12 - 0.3, c(0, sun.m.1995[1:11]), 1:12 + 0.3, sun.m.1995, col = c("cyan", 
     ifelse(diff(sun.m.1997) < 0, "red", "blue")))
 ```
 
-![plot of chunk waterfall 96vs97](https://github.com/yihui/knitr/raw/master/inst/examples/figure/waterfall_96vs97.png) 
+![plot of chunk waterfall 96vs97](https://github.com/jianchongsu/plot/raw/master/learn plot in r/figure/waterfall_96vs97.png) 
 
 ¿ÉÒÔÇåÎúµÄ¿´³ö£¬Ì«ÑôºÚ×ÓµÄÊıÁ¿µÄ±ä»¯Ã¿¸öÔÂµÄ´óÖÂ±ä»¯¶¼ÊÇÏàËÆµÄ¡£¶şÔÂ¡¢ÈıÔÂµÄÊıÁ¿¶¼»áÏà¶ÔÇ°Ò»¸öÔÂ³öÏÖÌ«ÑôºÚ×ÓµÄÊıÁ¿ÉÙ²»ÉÙ£¬¶øÇÒµÚÈı¸öÔÂ×ÜÊÇ½µµÍµ½0£¬¡£¶øºó,ËÄÔÂ¡¢ÎåÔÂ¡¢ÁùÔÂ¡¢ÆßÔÂ¿ªÊ¼ÖğÔÂÔö¶à£¬µ½ÁË°ËÔÂÓÖ±ÈÆßÔÂ³öÏÖµÄ´ÎÊıÉÙºÜ¶à£¬È»ºó¾ÅÔÂ¡¢Ê®ÔÂÖğÔÂÔö¼Ó£¬Ê®Ò»ÔÂÏÂ½µ£¬È»ºóÊ®¶şÔÂÔÙÔö¶à¡£ËµÃ÷ÁËÌ«ÑôºÚ×ÓÊıÁ¿Ëæ×ÅÔÂ·İµÄÖÜÆÚĞÔ±ä»¯¡£
 
@@ -130,14 +137,14 @@ waterfall = function(data) {
 waterfall(sun.m.1997)
 ```
 
-![plot of chunk action](https://github.com/yihui/knitr/raw/master/inst/examples/figure/action.png) 
+![plot of chunk action](https://github.com/jianchongsu/plot/raw/master/learn plot in r/figure/action.png) 
 
 
 ```r
 waterfall(trees[, 2])
 ```
 
-![plot of chunk actuon2](https://github.com/yihui/knitr/raw/master/inst/examples/figure/actuon2.png) 
+![plot of chunk actuon2](https://github.com/jianchongsu/plot/raw/master/learn plot in r/figure/actuon2.png) 
 
 ¸Ãº¯Êı»¹ÓĞ²»ÉÙÎÊÌâ£¬±ÈÈçy±êÇ©µÄ´¦Àí£¬ÒÔ¼°ÌâÄ¿µÄ´¦Àí£¬¶¼ÓĞ´ıÍêÉÆ£¬ÓĞÊ±¼ä»áÓÅ»¯Ò»ÏÂ¡£
 
