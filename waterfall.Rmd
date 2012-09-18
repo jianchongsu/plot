@@ -1,12 +1,15 @@
 学画图：一、瀑布图
 ========================================================
 
-``` {r setup,echo=FALSE,message=FALSE}
+
+```{r setup,echo=FALSE,message=FALSE}
 gitsubdir <- paste(tail(strsplit(getwd(),"/")[[1]],1),"/",sep="")
 gitrep <- "https://github.com/jianchongsu/plot"
 gitbranch <- "master"
 opts_knit$set(base.url=paste(gitrep,"raw",gitbranch,gitsubdir,sep="/"))
+
 ```
+
 
 
 ### 什么是瀑布图？
