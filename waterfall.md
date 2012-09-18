@@ -1,6 +1,8 @@
 学画图：一、瀑布图
 ========================================================
 
+
+
 ### 什么是瀑布图？
 瀑布图大致上可以看做是条形图的改进，不同的是，条形图都是从同一个基准线堆积起来的，通过比较高矮来反映数据的变化。
 而瀑布图除了第一个矩阵条之外，后面的矩阵条都不再以零点为基准线来画，而是以前一个矩阵条的高度为起点画矩阵到该矩阵条位置上取值，由此可以反映一个变量取值的上下变化。同时可以对跟前面数据相比，上升或者下降的情况赋以不同颜色，以来来清晰直爽的表现同前一个数据相比，上升或者下降的趋势。
@@ -23,7 +25,7 @@ head(sunspot.month, 12)
 plot(sunspot.month)
 ```
 
-![plot of chunk data_plot](figure/data_plot.png) 
+![plot of chunk data_plot](https://github.com/yihui/knitr/raw/master/inst/examples/figure/data_plot.png) 
 
 #### 将其矩阵化以及整理
 
@@ -53,7 +55,7 @@ barplot(sun.m.1997, main = "the number of sunspot in 1997", col = brewer.pal(12,
     "PuRd"))
 ```
 
-![plot of chunk barplot and waterfallplot](figure/barplot_and_waterfallplot.png) 
+![plot of chunk barplot and waterfallplot](https://github.com/yihui/knitr/raw/master/inst/examples/figure/barplot_and_waterfallplot.png) 
 
 #### 画瀑布图
 
@@ -71,14 +73,13 @@ diff(sun.m.1997)
 ```r
 
 plot(sun.m.1997, xlab = "1997年", ylab = "太阳黑子数", type = "n", xlim = c(0.5, 
-    12.5), ylim = c(0, max(sun.m.1997)), xaxt = "n", panel.first = grid(), main = "1997年太阳黑子数攼<U+3E37><U+383C><U+3E30> @	(
+    12.5), ylim = c(0, max(sun.m.1997)), xaxt = "n", panel.first = grid(), main = "1997年太阳黑子数攼<U+3E37><U+383C><U+3E30>
 axis(1, 1:12, sprintf(c("一%s", "二%s", "三%s", "四%s", "五%s", "六%s", "七%s", 
-    "八%s", "九%s", "十%s", "十一%s", "十二%s"),
-rect(1:12 - 0.3, c(0, sun.m.1997[1:11]), 1:12 + 0.3, sun.m.1997, col = c("cyan", 
+    "八%s", "九%s", "十%s", "十一%s", "十二%s"),rect(1:12 - 0.3, c(0, sun.m.1997[1:11]), 1:12 + 0.3, sun.m.1997, col = c("cyan", 
     ifelse(diff(sun.m.1997) < 0, "red", "blue")))
 ```
 
-![plot of chunk waterfall](figure/waterfall.png) 
+![plot of chunk waterfall](https://github.com/yihui/knitr/raw/master/inst/examples/figure/waterfall.png) 
 
 由上图可以看出二月三月相对于上一个月的太阳黑子数都有了下降的趋势，甚至第三个月降到了0，之后的四月、五月、六月、七月都是每个月比上个月出现的太阳黑子数多，整体的增长幅度在降低，直到第八个月又下降，九月、十月上升，十一月又降下来，然后十二月上升。大体说明了，每个月的太阳黑子数相对于前一个月的数量升降变化。
 
@@ -89,28 +90,24 @@ rect(1:12 - 0.3, c(0, sun.m.1997[1:11]), 1:12 + 0.3, sun.m.1997, col = c("cyan",
 par(mfrow = c(3, 1))
 sun.m.1997 = sun.m[249, ]
 plot(sun.m.1997, xlab = "1997年", ylab = "太阳黑子数", type = "n", xlim = c(0.5, 
-    12.5), ylim = c(0, max(sun.m.1997)), xaxt = "n", panel.first = grid(), main = "1997年太阳黑子数攼<U+3E37><U+383C><U+3E30> @	(
+    12.5), ylim = c(0, max(sun.m.1997)), xaxt = "n", panel.first = grid(), main = "1997年太阳黑子数攼<U+3E37><U+383C><U+3E30>
 axis(1, 1:12, sprintf(c("一%s", "二%s", "三%s", "四%s", "五%s", "六%s", "七%s", 
-    "八%s", "九%s", "十%s", "十一%s", "十二%s"),
-rect(1:12 - 0.3, c(0, sun.m.1997[1:11]), 1:12 + 0.3, sun.m.1997, col = c("cyan", 
+    "八%s", "九%s", "十%s", "十一%s", "十二%s"),rect(1:12 - 0.3, c(0, sun.m.1997[1:11]), 1:12 + 0.3, sun.m.1997, col = c("cyan", 
     ifelse(diff(sun.m.1997) < 0, "red", "blue")))
 sun.m.1996 = sun.m[248, ]
 plot(sun.m.1996, xlab = "1996年", ylab = "太阳黑子数", type = "n", xlim = c(0.5, 
-    12.5), ylim = c(0, max(sun.m.1996)), xaxt = "n", panel.first = grid(), main = "1996年太阳黑子数攼<U+3E37><U+383C><U+3E30>
-axis(1, 1:12, sprintf(c("一%s", "二%s", "三%s", "四%s", "五%s", "六%s", "七%s", 
-    "八%s", "九%s", "十%s", "十一%s", "十二%s"),
-rect(1:12 - 0.3, c(0, sun.m.1996[1:11]), 1:12 + 0.3, sun.m.1996, col = c("cyan", 
+    12.5), ylim = c(0, max(sun.m.1996)), xaxt = "n", panel.first = grid(), main = "1996年太阳黑子数攼<U+3E37><U+383C><U+3E30>axis(1, 1:12, sprintf(c("一%s", "二%s", "三%s", "四%s", "五%s", "六%s", "七%s", 
+    "八%s", "九%s", "十%s", "十一%s", "十二%s"),rect(1:12 - 0.3, c(0, sun.m.1996[1:11]), 1:12 + 0.3, sun.m.1996, col = c("cyan", 
     ifelse(diff(sun.m.1997) < 0, "red", "blue")))
 sun.m.1995 = sun.m[247, ]
 plot(sun.m.1996, xlab = "1995年", ylab = "太阳黑子数", type = "n", xlim = c(0.5, 
     12.5), ylim = c(0, max(sun.m.1995)), xaxt = "n", panel.first = grid(), main = "1995年太阳黑子数攼<U+3E37><U+383C><U+3E30>
 axis(1, 1:12, sprintf(c("一%s", "二%s", "三%s", "四%s", "五%s", "六%s", "七%s", 
-    "八%s", "九%s", "十%s", "十一%s", "十二%s"),
-rect(1:12 - 0.3, c(0, sun.m.1995[1:11]), 1:12 + 0.3, sun.m.1995, col = c("cyan", 
+    "八%s", "九%s", "十%s", "十一%s", "十二%s"),rect(1:12 - 0.3, c(0, sun.m.1995[1:11]), 1:12 + 0.3, sun.m.1995, col = c("cyan", 
     ifelse(diff(sun.m.1997) < 0, "red", "blue")))
 ```
 
-![plot of chunk waterfall 96vs97](figure/waterfall_96vs97.png) 
+![plot of chunk waterfall 96vs97](https://github.com/yihui/knitr/raw/master/inst/examples/figure/waterfall_96vs97.png) 
 
 可以清晰的看出，太阳黑子的数量的变化每个月的大致变化都是相似的。二月、三月的数量都会相对前一个月出现太阳黑子的数量少不少，而且第三个月总是降低到0，。而后,四月、五月、六月、七月开始逐月增多，到了八月又比七月出现的次数少很多，然后九月、十月逐月增加，十一月下降，然后十二月再增多。说明了太阳黑子数量随着月份的周期性变化。
 
@@ -133,14 +130,14 @@ waterfall = function(data) {
 waterfall(sun.m.1997)
 ```
 
-![plot of chunk action](figure/action.png) 
+![plot of chunk action](https://github.com/yihui/knitr/raw/master/inst/examples/figure/action.png) 
 
 
 ```r
 waterfall(trees[, 2])
 ```
 
-![plot of chunk actuon2](figure/actuon2.png) 
+![plot of chunk actuon2](https://github.com/yihui/knitr/raw/master/inst/examples/figure/actuon2.png) 
 
 该函数还有不少问题，比如y标签的处理，以及题目的处理，都有待完善，有时间会优化一下。
 
