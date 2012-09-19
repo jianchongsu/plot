@@ -23,7 +23,7 @@ par(mfrow=c(1,1))
 
   num=sample(-5:5,20,replace=T)
 num2=num^2
-plot(num2,type="n",xlim=c(-6,6),ylim=c(0,13),panel.first=grid())
+plot(num2,type="n",xlim=c(-6,6),ylim=c(0,13),ylab=NA,xlab=NA,xaxt="n",yaxt="n")
 
 
 segments(-2,0,-1,10)
@@ -54,50 +54,10 @@ polygon(c(1,1,3,4.3,4,2.5,1),c(8,10,12.8,3,0,10,8),col=col1)
 text(5,12,"大",cex=2.5,col=colors()[463])
   text(5,10,"裤",cex=2.5,col=colors()[464])
   text(5,8,"衩",cex=2.5,col=colors()[465])
-
+text(-5,11,expression(Sigma),cex=6,font=3,col="blue",srt=270)
 ```
 
-当然，只是用平面画个粗略的形状，遗憾的是没有学过画画，不然，可以更好看些。
-
-### 恶搞
-每每说起大裤衩，它总是摆脱不了被调侃的命运。我也来一把，个中意思可远观而不可亵渎也。
+当然，只是用平面画个粗略的形状，遗憾的是没有学过画画，不然，可以更好看些。固然不像立体的大裤衩，倒是像极了倒放的求和符号Sigma。
+哈哈，有趣
 
 
-```{r dakucha_joke,echo=FALSE,warning=FALSE}
-par(mfrow=c(1,1))
-
-  num=sample(-5:5,20,replace=T)
-num2=num^2
-plot(num2,type="n",xlim=c(-6,6),ylim=c(0,13),panel.first=grid())
-
-
-segments(-2,0,-1,10)
-segments(1,8,-1,10)
-segments(1,8,2.5,10)
-segments(4,0,2.5,10)
-segments(-4,2,-2.5,13)
-
-segments(1,10,-2.5,13)
-segments(1,10,1,8)
-segments(1,10,3,12.8)
-segments(4.3,3,3,12.8)
-
-segments(-4,2,-2,0,lty=2)
-segments(4,0,4.3,3,lty=2)
-
-segments(-1,5,2.5,5,lty=2)
-segments(-1,2,-1,5,lty=2)
-segments(-1,2,2.5,2,lty=2)
-segments(1,2,1,5,lty=2)
-polygon(c(-1,3,3,-1,-1),c(5,5,2,2,5),col="white")
-
-points(1,3.5,cex=15,col="red",pch=20)
-set.seed(2)
-col1=sample(colors(),10)[6]
-polygon(c(-4,-2.5,1,1,-1,-2,-4),c(2,13,10,8,10,0,2),col=col1)
-polygon(c(1,1,3,4.3,4,2.5,1),c(8,10,12.8,3,0,10,8),col=col1)
-text(5,12,"大",cex=2.5,col=colors()[463])
-  text(5,10,"裤",cex=2.5,col=colors()[464])
-  text(5,8,"衩",cex=2.5,col=colors()[465])
-
-```
