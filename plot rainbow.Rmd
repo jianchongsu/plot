@@ -23,7 +23,7 @@ y.value=sqrt(16-x.value^2)-2
 这里没有取整个半圆，是因为好像生活中看到的彩虹很少能看到半圆的，大都是一个劣弧组成的。
 
 #### 第二步 ：设置前景色和作图区域
-```{r par,warning=FALSE,tidy=TRUE}
+```{r par,warning=FALSE,tidy=TRUE,fig.height=6,fig.width=6}
 plot(x.value,y.value,xlab = NA,ylab = NA,ylim = c(-6,8),xlim = c(-10,10),type = "l",
      lwd = 10,col = rainbow(8)[7],xaxt="n",yaxt = "n")
 text(0,6,"Rainbow in R",col = "honeydew")
@@ -33,7 +33,7 @@ text(0,6,"Rainbow in R",col = "honeydew")
 > 实践出真知！
 
 #### 第三步：程序化完成彩虹图
-下面的工作就有点程序化，不过是因为是一些同心圆弧相切在一起，弧的宽度就是两个同心圆半径的差，经试验可知，在线的宽度为10的时候，相邻的两个圆弧的半径之差为0.4的时候 就正好。于是只需要用曲线函数，一来每次增加0.4的半径，而是改变圆弧的颜色（由rainbow(7)提供）,于是设置两个参数即可。先将程序化的语言编程函数如下：
+下面的工作就有点程序化，不过是因为是一些同心圆弧相切在一起，弧的宽度就是两个同心圆半径的差，经试验可知，在线的宽度为10的时候(lwd的值要随着图片的大小而变化的)，相邻的两个圆弧的半径之差为0.4的时候 就正好。于是只需要用曲线函数，一来每次增加0.4的半径，而是改变圆弧的颜色（由rainbow(7)提供）,于是设置两个参数即可。先将程序化的语言编程函数如下：
 ```{r rain.bow,warning=FALSE,tidy=TRUE}
 rain.bow=function(r,n)
 {
@@ -42,7 +42,7 @@ rain.bow=function(r,n)
 ```
 那么余下的工作就可以如下完成了（其实这个也可以程序化）：
 
-```{r rain.bow.output,warning=FALSE,tidy=TRUE}
+```{r rain.bow.output,warning=FALSE,tidy=TRUE,fig.height=6,fig.width=8}
 plot(x.value,y.value,xlab = NA,ylab = NA,ylim = c(-6,8),xlim = c(-10,10),type = "l",
      lwd = 10,col = rainbow(8)[7],xaxt="n",yaxt = "n")
 rain.bow(4.4,6)
@@ -55,12 +55,12 @@ rain.bow(6.4,1)
 ```
 于是就完成了一个初步的小彩虹，但是好像更生活中见到的不太一样。可能是颜色不对，经Google知，彩虹由外到内的颜色是红橙黄绿青蓝紫。
 而我们可爱的rainbow(7)提供的这七种颜色，并不是按照这种顺序排列，或者说其中没有组成彩虹的七色之一呢。来看下rainbow(7)是哪七种颜色：
-```{r rainbow(7).bar,warning=FALSE,echo=FALSE}
+```{r rainbow(7).bar,warning=FALSE,echo=FALSE,fig.height=8,fig.width=8}
 barplot(1:7,col=rainbow(7))
 ```
 这七种颜色中缺少橙色，却多了粉红色。
 于是需要将之前的少许颜色略作更改即可：
-```{r finish,echo=FALSE,warning=FALSE}
+```{r finish,echo=FALSE,warning=FALSE,fig.height=6,fig.width=8}
 par(bg="skyblue3")
 x.value=seq(-4,4,length=1000)
 y.value=sqrt(16-x.value^2)-2

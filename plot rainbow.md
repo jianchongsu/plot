@@ -29,14 +29,14 @@ plot(x.value, y.value, xlab = NA, ylab = NA, ylim = c(-6, 8), xlim = c(-10,
 text(0, 6, "Rainbow in R", col = "honeydew")
 ```
 
-<img src="http://i.imgur.com/S98mT.png"   style="display:block; margin: auto" alt="plot of chunk par" title="plot of chunk par" /> 
+<img src="http://i.imgur.com/xczBv.png"   style="display:block; margin: auto" alt="plot of chunk par" title="plot of chunk par" /> 
 
 这里设置了图形展现的type是“l”，即连线。并画出了彩虹的最内侧颜色，紫色，在开始的时候设置了天蓝色的背景色。
 这里补充一句，我开始的时候直接plOt(x)发现图中x的范围是1-1000，而不是-4-4，才想起来，如果缺失了x的数据，plot中会以1：n来补充x的值。
 > 实践出真知！
 
 #### 第三步：程序化完成彩虹图
-下面的工作就有点程序化，不过是因为是一些同心圆弧相切在一起，弧的宽度就是两个同心圆半径的差，经试验可知，在线的宽度为10的时候，相邻的两个圆弧的半径之差为0.4的时候 就正好。于是只需要用曲线函数，一来每次增加0.4的半径，而是改变圆弧的颜色（由rainbow(7)提供）,于是设置两个参数即可。先将程序化的语言编程函数如下：
+下面的工作就有点程序化，不过是因为是一些同心圆弧相切在一起，弧的宽度就是两个同心圆半径的差，经试验可知，在线的宽度为10的时候(lwd的值要随着图片的大小而变化的)，相邻的两个圆弧的半径之差为0.4的时候 就正好。于是只需要用曲线函数，一来每次增加0.4的半径，而是改变圆弧的颜色（由rainbow(7)提供）,于是设置两个参数即可。先将程序化的语言编程函数如下：
 
 ```r
 rain.bow = function(r, n) {
@@ -59,14 +59,14 @@ rain.bow(6, 2)
 rain.bow(6.4, 1)
 ```
 
-<img src="http://i.imgur.com/MUGjV.png"   style="display:block; margin: auto" alt="plot of chunk rain.bow.output" title="plot of chunk rain.bow.output" /> 
+<img src="http://i.imgur.com/O29lu.png"   style="display:block; margin: auto" alt="plot of chunk rain.bow.output" title="plot of chunk rain.bow.output" /> 
 
 于是就完成了一个初步的小彩虹，但是好像更生活中见到的不太一样。可能是颜色不对，经Google知，彩虹由外到内的颜色是红橙黄绿青蓝紫。
 而我们可爱的rainbow(7)提供的这七种颜色，并不是按照这种顺序排列，或者说其中没有组成彩虹的七色之一呢。来看下rainbow(7)是哪七种颜色：
-<img src="http://i.imgur.com/vhevV.png"   style="display:block; margin: auto" alt="plot of chunk rainbow(7).bar" title="plot of chunk rainbow(7).bar" /> 
+<img src="http://i.imgur.com/kSuKw.png"   style="display:block; margin: auto" alt="plot of chunk rainbow(7).bar" title="plot of chunk rainbow(7).bar" /> 
 
 这七种颜色中缺少橙色，却多了粉红色。
 于是需要将之前的少许颜色略作更改即可：
-<img src="http://i.imgur.com/wKQTm.png"   style="display:block; margin: auto" alt="plot of chunk finish" title="plot of chunk finish" /> 
+<img src="http://i.imgur.com/eJyNA.png"   style="display:block; margin: auto" alt="plot of chunk finish" title="plot of chunk finish" /> 
 
 
