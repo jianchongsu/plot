@@ -1,5 +1,11 @@
 R画图：画彩虹图
 ========================================================
+
+```{r setup, include=FALSE}
+opts_knit$set(upload.fun = imgur_upload) 
+opts_chunk$set(fig.width=8, fig.height=8, out.extra='style="display:block; margin: auto"')
+
+```
 ### 引子
 既然R中为了让大家使用颜色方便，提供了rainbow()的函数，可以让大家不太为颜色发愁，那能不能对得起这个函数的名字，画出来一个彩虹图呢？
 想起来应该很简单，就是用圆弧呗，把圆弧的宽度当做是一个颜色，然后七个圆弧相切的贴在一起不就得了。这当然是一种思路。

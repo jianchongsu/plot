@@ -1,5 +1,8 @@
 R画图：画彩虹图
 ========================================================
+
+
+
 ### 引子
 既然R中为了让大家使用颜色方便，提供了rainbow()的函数，可以让大家不太为颜色发愁，那能不能对得起这个函数的名字，画出来一个彩虹图呢？
 想起来应该很简单，就是用圆弧呗，把圆弧的宽度当做是一个颜色，然后七个圆弧相切的贴在一起不就得了。这当然是一种思路。
@@ -26,7 +29,7 @@ plot(x.value, y.value, xlab = NA, ylab = NA, ylim = c(-6, 8), xlim = c(-10,
 text(0, 6, "Rainbow in R", col = "honeydew")
 ```
 
-![plot of chunk par](figure/par.png) 
+<img src="http://i.imgur.com/S98mT.png"   style="display:block; margin: auto" alt="plot of chunk par" title="plot of chunk par" /> 
 
 这里设置了图形展现的type是“l”，即连线。并画出了彩虹的最内侧颜色，紫色，在开始的时候设置了天蓝色的背景色。
 这里补充一句，我开始的时候直接plOt(x)发现图中x的范围是1-1000，而不是-4-4，才想起来，如果缺失了x的数据，plot中会以1：n来补充x的值。
@@ -56,14 +59,14 @@ rain.bow(6, 2)
 rain.bow(6.4, 1)
 ```
 
-![plot of chunk rain.bow.output](figure/rain_bow_output.png) 
+<img src="http://i.imgur.com/MUGjV.png"   style="display:block; margin: auto" alt="plot of chunk rain.bow.output" title="plot of chunk rain.bow.output" /> 
 
 于是就完成了一个初步的小彩虹，但是好像更生活中见到的不太一样。可能是颜色不对，经Google知，彩虹由外到内的颜色是红橙黄绿青蓝紫。
 而我们可爱的rainbow(7)提供的这七种颜色，并不是按照这种顺序排列，或者说其中没有组成彩虹的七色之一呢。来看下rainbow(7)是哪七种颜色：
-![plot of chunk rainbow(7).bar](figure/rainbow_7__bar.png) 
+<img src="http://i.imgur.com/vhevV.png"   style="display:block; margin: auto" alt="plot of chunk rainbow(7).bar" title="plot of chunk rainbow(7).bar" /> 
 
 这七种颜色中缺少橙色，却多了粉红色。
 于是需要将之前的少许颜色略作更改即可：
-![plot of chunk finish](figure/finish.png) 
+<img src="http://i.imgur.com/wKQTm.png"   style="display:block; margin: auto" alt="plot of chunk finish" title="plot of chunk finish" /> 
 
 
